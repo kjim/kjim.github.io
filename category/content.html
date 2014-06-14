@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 
-        <title>サーバー起動時に 301 エラー</title>
+        <title>openbooth</title>
         <meta charset="utf-8" />
         <link href="http://kjim.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="openbooth Full Atom Feed" />
         <link href="http://kjim.github.io/feeds/content.atom.xml" type="application/atom+xml" rel="alternate" title="openbooth Categories Atom Feed" />
@@ -45,65 +45,60 @@
               </ul>
             </div>
 
-<section id="content" class="body">
+<section id="content">
+<h2>Articles in the content category</h2>
+
 
    <div class="row">
+
+
         <div class="eleven columns">
-
-
-            <header>
-              <h2 class="entry-title">
-                <a href="http://kjim.github.io/posts/2013/06/08/missing-installation-vertx-mods.html" rel="bookmark"
-                   title="Permalink to サーバー起動時に 301 エラー">サーバー起動時に 301 エラー</a></h2>
-           
-            </header>
-            <footer class="post-info">
-              <abbr class="published" title="2013-06-08T17:38:00">
-                土 08 6月 2013
-              </abbr>
-              <address class="vcard author">
-                By <a class="url fn" href="http://kjim.github.io/author/kjim.html">kjim</a>
-              </address>
-            </footer><!-- /.post-info -->
-            <div class="entry-content">
-              <p>最近ちょこっと vert.x を触ってる。</p>
+		         <ol id="post-list">
+				        <li><article class="hentry">
+				                <header> <h2 class="entry-title"><a href="http://kjim.github.io/posts/2013/06/08/missing-installation-vertx-mods.html" rel="bookmark" title="Permalink to サーバー起動時に 301 エラー">サーバー起動時に 301 エラー</a></h2> </header>
+				                <footer class="post-info">
+				                    <abbr class="published" title="2013-06-08T17:38:00"> 土 08 6月 2013 </abbr>
+<address class="vcard author">By <a class="url fn" href="http://kjim.github.io/author/kjim.html">kjim</a></address>				                </footer><!-- /.post-info -->
+				                <div class="entry-content"> <p>最近ちょこっと vert.x を触ってる。</p>
 <p>まずはチュートリアルからということで <a href="http://vertx.io/groovy_web_tutorial.html">Groovy Web Application Tutorial</a> をシコシコとやっている訳ですが、なんかチュートリアル通りにやっても <code>vertx run</code> でサーバー起動しないw</p>
 <p>そしてコンソールにこんな出力が出ている。</p>
 <div class="highlight"><pre><span class="c">% vertx run App.groovy</span>
 <span class="n">Attempting</span> <span class="n">to</span> <span class="n">install</span> <span class="n">module</span> <span class="n">vertx</span><span class="p">.</span><span class="n">mongo</span><span class="o">-</span><span class="n">persistor</span><span class="o">-</span><span class="n">v1</span><span class="p">.</span><span class="mi">2</span> <span class="n">from</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">vert</span><span class="o">-</span><span class="n">x</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">:</span><span class="mi">80</span><span class="o">/</span><span class="n">vertx</span><span class="o">-</span><span class="n">mods</span><span class="o">/</span><span class="n">mods</span><span class="o">/</span><span class="n">vertx</span><span class="p">.</span><span class="n">mongo</span><span class="o">-</span><span class="n">persistor</span><span class="o">-</span><span class="n">v1</span><span class="p">.</span><span class="mi">2</span><span class="o">/</span><span class="nb">mod</span><span class="p">.</span><span class="n">zip</span>
-<span class="n">Failed</span> <span class="n">to</span> <span class="n">download</span> <span class="n">module</span><span class="p">:</span> <span class="mi">301</span>
-</pre></div>
+<span class="n">Failed</span> <span class="n">to</span> <span class="n">download</span> <span class="n">module</span><span class="p">:</span> <span class="mi">301 ...</span></pre></div> </div><!-- /.entry-content -->
+
+								<div class="medium primary btn"><a href="http://kjim.github.io/posts/2013/06/08/missing-installation-vertx-mods.html" rel="bookmark" title="Permalink to サーバー起動時に 301 エラー">Read more <i class="icon-arrow-right"></i></a></div>
 
 
-<p>ちょっと調べたら原因すぐに分かった。どうやら mods のダウンロード先の URL が
-変わっているらしい。でも vert.x がサーバー起動時に自動ダウンロードする URL は
-相変わらず古いままならしい。</p>
-<p>vert.x の森にはまだもぐっていないので、インストールしておくべき mods を事前に
-インストールして解決することにした。</p>
-<div class="highlight"><pre><span class="c">% vertx install vertx.mongo-persistor-v1.2 -repo vert-x.github.io</span>
-<span class="n">Attempting</span> <span class="n">to</span> <span class="n">install</span> <span class="n">module</span> <span class="n">vertx</span><span class="p">.</span><span class="n">mongo</span><span class="o">-</span><span class="n">persistor</span><span class="o">-</span><span class="n">v1</span><span class="p">.</span><span class="mi">2</span> <span class="n">from</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">vert</span><span class="o">-</span><span class="n">x</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="p">:</span><span class="mi">80</span><span class="o">/</span><span class="n">vertx</span><span class="o">-</span><span class="n">mods</span><span class="o">/</span><span class="n">mods</span><span class="o">/</span><span class="n">vertx</span><span class="p">.</span><span class="n">mongo</span><span class="o">-</span><span class="n">persistor</span><span class="o">-</span><span class="n">v1</span><span class="p">.</span><span class="mi">2</span><span class="o">/</span><span class="nb">mod</span><span class="p">.</span><span class="n">zip</span>
-<span class="n">Downloading</span> <span class="n">module</span><span class="c">...</span>
-<span class="n">Installing</span> <span class="n">module</span> <span class="n">into</span> <span class="n">directory</span> <span class="s">&#39;mods&#39;</span>
-</pre></div>
+
+								<div class="row tag-row">
+										<span>Tagged as : </span>
+											<a class="danger label" href="http://kjim.github.io/tag/vertx.html">vert.x</a>
+								</div>
 
 
-<p><code>-repo vert-x.github.io</code> がキモ。</p>
-<p>因みに vert.x のバージョンは最新を使っていて <code>1.3.1</code></p>
-<p>まぁ大した問題ではない。</p>
-            </div><!-- /.entry-content -->
-            <div class="comments">
-              <h3>Comments</h3>
-              <div id="disqus_thread"></div>
-              <script type="text/javascript">
-                var disqus_identifier = "posts/2013/06/08/missing-installation-vertx-mods.html";
-                (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://openbooth.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-              </script>
-            </div>
 
+				        </article></li>
+				        <li><article class="hentry">
+				                <header> <h2 class="entry-title"><a href="http://kjim.github.io/posts/2013/05/28/start-blogging-with-pelican.html" rel="bookmark" title="Permalink to ブログを新たに再開!?">ブログを新たに再開!?</a></h2> </header>
+				                <footer class="post-info">
+				                    <abbr class="published" title="2013-05-28T08:00:00"> 火 28 5月 2013 </abbr>
+<address class="vcard author">By <a class="url fn" href="http://kjim.github.io/author/kjim.html">kjim</a></address>				                </footer><!-- /.post-info -->
+				                <div class="entry-content"> <p>暫く放置していたブログを再開することにした。これまで wordpress を使っていたけど、
+ちょっと趣向を変え、Pelican に移行することに。流行の Octopress でないことがまたなんとも。</p>
+<p>更新頻度を上げていけたらと思う。</p>
+<p>はてさて...</p> </div><!-- /.entry-content -->
+
+								<div class="medium primary btn"><a href="http://kjim.github.io/posts/2013/05/28/start-blogging-with-pelican.html" rel="bookmark" title="Permalink to ブログを新たに再開!?">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+								<div class="row tag-row">
+								</div>
+
+
+
+				        </article></li>
+				</ol><!-- /#posts-list -->
 
         </div><!-- /.eleven.columns -->
         
@@ -138,8 +133,10 @@
 
 </div> </div><!-- /.row -->
 
-
-</section>
+<p class="paginator">
+    Page 1 / 1
+</p>
+</section><!-- /#content -->
 
        </div><!-- /.row -->
     </div><!-- /.container -->
